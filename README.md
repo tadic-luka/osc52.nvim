@@ -44,17 +44,20 @@ use {
 ```
 
 ## Basic usage
-Enter Visual mode, select your text and run `:OSCYank`.
-
-You may want to map the command:
-```vim
-vnoremap <leader>c :OSCYank<CR>
+After running 
+```lua
+require('osc52`)
 ```
+Three vim commands will be installed:
+- :OSCYank <arg>
+- :OSCYankReg <reggister>
+- :OSCYankRange
+  
+Enter Visual mode, select your text and run `:OSCYankRange`.
 
-You can also use the OSCYank operator:
-```vim
-nmap <leader>o <Plug>OSCYank
-```
+To copy any kind of text just run `:OSCYank <text>`.
+To copy register run `:OSCYankReg <register name>`.
+
 
 ## Copying from a register
 If you prefer to copy text from a particular register, use:
