@@ -58,6 +58,13 @@ Enter Visual mode, select your text and run `:OSCYankRange`.
 To copy any kind of text just run `:OSCYank <text>`.
 To copy register run `:OSCYankReg <register name>`.
 
+You can also invoke function in lua directly:
+```
+-- only one function is exported, this function is called "yank_str"
+local osc52 = require('osc52')
+osc52.yank_str("this will be copied to clipboard")
+```
+
 
 ## Copying from a register
 If you prefer to copy text from a particular register, use:
