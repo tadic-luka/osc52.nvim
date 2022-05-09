@@ -13,7 +13,7 @@ function  osc52_tmux(data)
 end
 
 
-function yank_str(str)
+function M.yank_str(str)
   local length = string.len(str)
   local limit = 100000
 
@@ -45,7 +45,7 @@ end
 vim.api.nvim_create_user_command(
   'OSCYank',
   function(opts)
-    yank_str(opts.args)
+    M.yank_str(opts.args)
   end,
   { nargs = 1}
 )
@@ -53,7 +53,7 @@ vim.api.nvim_create_user_command(
 vim.api.nvim_create_user_command(
   'OSCYankReg',
   function(opts)
-    yank_str(vim.fn.getreg(opts.args))
+    M.yank_str(vim.fn.getreg(opts.args))
   end,
   { nargs = 1}
 )
@@ -69,7 +69,7 @@ vim.api.nvim_create_user_command(
       lines[i] = string.sub(lines[i], col_start, col_end)
     end
 
-    yank_str(table.concat(lines, "\n"))
+    M.yank_str(table.concat(lines, "\n"))
   end,
   { range = '%'}
 )
